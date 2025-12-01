@@ -4,7 +4,7 @@ from app.models.user import User
 
 users = Blueprint("users", __name__)
 
-@users.route('/allUsers', methods=['GET'])
+@users.route('/allusers', methods=['GET'])
 def all_users():
     # SELECT * FROM users
     users = User.query.all()

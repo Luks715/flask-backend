@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, current_app
 from app import db
 from app.models.user import User
 import bcrypt
@@ -40,8 +40,11 @@ def login():
             "username": user.username,
             "exp": datetime.now(timezone.utc) + timedelta(hours=1)
         },
-        "chave_secreta",
+        current_app.config["SECRET_KEY"],
         algorithm="HS256"
     )
 
-    return jsonify({"token": token})
+    resp = jsonify({"message": "login successful"})
+    resp.set_cookie("token", token, httponly=True, secure=True, samesite='Lax')
+
+    return resp
