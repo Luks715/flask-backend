@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta - WhatsChat Seguro</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+</head>
+<body>
+
+    <div class="auth-container">
+        <h2>Criar Nova Conta</h2>
+        <p class="subtitle">Junte-se ao chat mais seguro da disciplina.</p>
+        
+        <form id="registerForm">
+            <div class="input-group">
+                <label for="username">Escolha um Usuário</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Escolha uma Senha Forte</label>
+                <input type="password" id="password" name="password" required autocomplete="new-password">
+            </div>
+
+            <div class="input-group">
+                <label for="confirm_password">Confirme sua Senha</label>
+                <input type="password" id="confirm_password" name="confirm_password" required autocomplete="new-password">
+            </div>
+
+            <button type="submit" id="btnSubmit">Registrar-se</button>
+        </form>
+
+        <div id="errorMsg" class="error-message">
+            Erro ao criar usuário.
+        </div>
+
+        <div class="footer-link">
+            <p>Já tem uma conta? <a href="{{ url_for('auth.login_get') }}">Fazer Login</a></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/register.js') }}"></script>
+</body>
+</html>

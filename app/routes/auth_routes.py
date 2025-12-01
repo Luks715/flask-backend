@@ -7,6 +7,10 @@ from datetime import datetime, timedelta, timezone
 
 auth = Blueprint("auth", __name__)
 
+@auth.route('/register', methods=['GET'])
+def register_get():
+    return render_template('register.html')
+
 @auth.route('/register', methods=['POST'])
 def register():
     data = request.json

@@ -2,10 +2,45 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>WhatsChat - login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - WhatsChat Seguro</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
 </head>
 <body>
-    <h1>Sistema de Chat Seguro - WhatsChat</h1>
-    <p>Muito trabalho pela frente :)</p>
+
+    <div class="auth-container">
+        <h2>Entrar no WhatsChat</h2>
+
+        <div id="successMsg" class="success-message" style="display: none;">
+            Conta criada com sucesso! Faça login.
+        </div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Usuário</label>
+                <input type="text" id="username" name="username" required autocomplete="username">
+            </div>
+            
+            <div class="input-group">
+                <label for="password">Senha</label>
+                <input type="password" id="password" name="password" required autocomplete="current-password">
+            </div>
+
+            <button type="submit" id="btnSubmit">Acessar</button>
+        </form>
+
+        <div id="errorMsg" class="error-message">
+            Usuário ou senha incorretos.
+        </div>
+
+        <div class="footer-link">
+            <p>Ainda não tem conta? <a href="/auth/register">Crie agora</a></p>
+        </div>
+    </div>
+
+    <!-- Link para o JS usando url_for -->
+    <script src="{{ url_for('static', filename='js/login.js') }}"></script>
 </body>
 </html>
