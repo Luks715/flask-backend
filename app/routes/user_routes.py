@@ -1,9 +1,13 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, render_template
 from app import db
 from app.models.user import User
 from app.routes.default import get_token_from_request, is_token_valid
 
 users = Blueprint("users", __name__)
+
+@users.route('/home', methods=['GET'])
+def home():
+    return render_template('home.html')
 
 @users.route('/allusers', methods=['GET'])
 def all_users():

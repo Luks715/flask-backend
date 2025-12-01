@@ -31,4 +31,4 @@ def default():
     if not is_token_valid(token):
         return redirect(url_for('auth.login_get'))
     else:
-        return redirect(url_for('users.all_users'))
+        return redirect(url_for('users.home'))

@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsChat - Registrar Conta</title>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block title %} - Registrar Conta{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/register.css') }}">
+{% endblock %}
+
+{% block content %}
     <div class="auth-container">
         <h2>Criar Nova Conta</h2>
         <p class="subtitle">Junte-se ao chat mais seguro da disciplina.</p>
@@ -41,7 +38,8 @@
             <p>Já tem uma conta? <a href="{{ url_for('auth.login_get') }}">Fazer Login</a></p>
         </div>
     </div>
+{% endblock %}
 
+{% block extra_js %}
     <script src="{{ url_for('static', filename='js/register.js') }}"></script>
-</body>
-</html>
+{% endblock %}

@@ -2,10 +2,19 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <title>WhatsChat</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>WhatsChat{% block title %}{% endblock %}</title>
+    
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    {% block extra_css %}{% endblock %}
 </head>
 <body>
-    <h1>Sistema de Chat Seguro - WhatsChat</h1>
-    <p>Muito trabalho pela frente :)</p>
+    <!-- Bloco Principal de Conteúdo -->
+    {% block content %}
+    {% endblock %}
+
+    <!-- Bloco para Scripts JS Específicos da página filha -->
+    {% block extra_js %}{% endblock %}
 </body>
 </html>

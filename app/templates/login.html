@@ -1,15 +1,12 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WhatsChat - Login</title>
-    
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
-</head>
-<body>
+{% extends "base.html" %}
 
+{% block title %} - Login{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+{% endblock %}
+
+{% block content %}
     <div class="auth-container">
         <h2>Entrar no WhatsChat</h2>
 
@@ -39,8 +36,8 @@
             <p>Ainda não tem conta? <a href="/auth/register">Crie agora</a></p>
         </div>
     </div>
+{% endblock %}
 
-    <!-- Link para o JS usando url_for -->
+{% block extra_js %}
     <script src="{{ url_for('static', filename='js/login.js') }}"></script>
-</body>
-</html>
+{% endblock %}
